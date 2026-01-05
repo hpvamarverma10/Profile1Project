@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap');
 
 /* Ankit Verma Portfolio - Med3 Design System */
 
@@ -398,6 +398,32 @@
   /* Section padding - Exact from Med3 */
   .section-padding {
     padding-block: 120px;
+  }
+
+  /* Custom scrollbar for horizontal project scroll */
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: hsl(var(--alice-blue));
+    border-radius: 4px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background: hsl(var(--verdigris));
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--midnight-green));
+  }
+
+  .overflow-x-auto {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--verdigris)) hsl(var(--alice-blue));
   }
 }
 

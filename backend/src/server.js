@@ -5,6 +5,7 @@ import connectDB from './config/mongodb.js';
 import authRoutes from './routes/auth.js';
 import dashboardRoutes from './routes/dashboard.js';
 import resumeRoutes from './routes/resume.js';
+import projectRoutes from './routes/projects.js';
 import Admin from './models/Admin.js';
 
 dotenv.config();
@@ -20,6 +21,7 @@ connectDB();
 app.use(authRoutes);
 app.use(dashboardRoutes);
 app.use(resumeRoutes);
+app.use(projectRoutes);
 
 const initializeAdmin = async () => {
   try {

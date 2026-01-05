@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Upload, File, Trash2 } from 'lucide-react';
 import { toast } from '@/components/ui/sonner';
+import ProjectManager from '@/components/ProjectManager';
 
 interface AdminData {
   id: string;
@@ -293,6 +294,8 @@ export default function AdminDashboard() {
               </div>
             </CardContent>
           </Card>
+
+          <ProjectManager />
         </div>
       </div>
     </div>
