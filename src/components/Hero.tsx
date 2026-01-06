@@ -16,7 +16,8 @@ const Hero = () => {
   useEffect(() => {
     const checkResume = async () => {
       try {
-        const response = await fetch('http://localhost:5000/v1/ankitverma969/getResume');
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+        const response = await fetch(`${backendUrl}/v1/ankitverma969/getResume`);
         if (response.ok) {
           setResumeAvailable(true);
         } else {
@@ -41,7 +42,8 @@ const Hero = () => {
       toast.error('Resume not available. Please upload a resume from the admin dashboard.');
       return;
     }
-    window.open('http://localhost:5000/v1/ankitverma969/viewResume', '_blank');
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+    window.open(`${backendUrl}/v1/ankitverma969/viewResume`, '_blank');
   };
 
   const handleDownloadResume = () => {
@@ -49,7 +51,8 @@ const Hero = () => {
       toast.error('Resume not available. Please upload a resume from the admin dashboard.');
       return;
     }
-    window.location.href = 'http://localhost:5000/v1/ankitverma969/downloadResume';
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+    window.location.href = `${backendUrl}/v1/ankitverma969/downloadResume`;
   };
 
   const renderButtons = () => {

@@ -40,7 +40,8 @@ export default function AdminDashboard() {
           return;
         }
 
-        const response = await fetch('http://localhost:5000/v1/ankitverma969/adminDashboard', {
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+        const response = await fetch(`${backendUrl}/v1/ankitverma969/adminDashboard`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -73,7 +74,8 @@ export default function AdminDashboard() {
 
   const fetchResume = async () => {
     try {
-      const response = await fetch('http://localhost:5000/v1/ankitverma969/getResume');
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+      const response = await fetch(`${backendUrl}/v1/ankitverma969/getResume`);
       const data = await response.json();
 
       if (response.ok) {
@@ -110,7 +112,8 @@ export default function AdminDashboard() {
 
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:5000/v1/ankitverma969/uploadResume', {
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+      const response = await fetch(`${backendUrl}/v1/ankitverma969/uploadResume`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -143,7 +146,8 @@ export default function AdminDashboard() {
     setDeleting(true);
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:5000/v1/ankitverma969/deleteResume', {
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+      const response = await fetch(`${backendUrl}/v1/ankitverma969/deleteResume`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

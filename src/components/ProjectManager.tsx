@@ -44,7 +44,8 @@ export default function ProjectManager() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch('http://localhost:5000/v1/ankitverma969/projects');
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+      const response = await fetch(`${backendUrl}/v1/ankitverma969/projects`);
       const data = await response.json();
 
       if (response.ok) {
@@ -80,9 +81,10 @@ export default function ProjectManager() {
     };
 
     try {
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
       const url = editingProject
-        ? `http://localhost:5000/v1/ankitverma969/projects/${editingProject._id}`
-        : 'http://localhost:5000/v1/ankitverma969/projects';
+        ? `${backendUrl}/v1/ankitverma969/projects/${editingProject._id}`
+        : `${backendUrl}/v1/ankitverma969/projects`;
 
       const response = await fetch(url, {
         method: editingProject ? 'PUT' : 'POST',
@@ -132,7 +134,8 @@ export default function ProjectManager() {
     const token = localStorage.getItem('adminToken');
 
     try {
-      const response = await fetch(`http://localhost:5000/v1/ankitverma969/projects/${id}`, {
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+      const response = await fetch(`${backendUrl}/v1/ankitverma969/projects/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
